@@ -1,0 +1,18 @@
+.mainFooter {
+  background-color: var(--colorDarkGreen);
+  color: var(--colorWhite);
+  padding: 40px 0;
+}
+
+.footerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footerLinks {
+  display: flex;
+  gap: 30px;
+}

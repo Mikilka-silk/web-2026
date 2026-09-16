@@ -1,0 +1,33 @@
+.featuresSection {
+  display: flex;
+  gap: 80px;
+  padding: 100px 15px;
+  align-items: stretch;
+}
+
+.featuresImage {
+  flex: 0.35;
+  display: flex;
+}
+
+.featuresImage img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.featuresGrid {
+  flex: 0.65;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px 40px;
+  align-content: center;
+}
+
+.featureCard {
+  transition: transform 0.3s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-5px);
+}

@@ -1,0 +1,55 @@
+.btn {
+  padding: 12px 24px;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btnOutline {
+  border: 1px solid var(--colorWhite);
+  background: transparent;
+  color: var(--colorWhite);
+}
+
+.btnOutline:hover {
+  background-color: var(--colorWhite);
+  color: var(--colorDarkGreen);
+}
+
+.btnOutlineDark {
+  border: 1px solid var(--colorDarkGreen);
+  color: var(--colorTextMain);
+  background: transparent;
+  padding: 12px 32px;
+  display: inline-block;
+  margin-top: 15px;
+}
+
+.btnOutlineDark:hover {
+  background-color: var(--colorDarkGreen);
+  color: var(--colorWhite);
+}
+
+.playButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 30px;
+  font-weight: bold;
+}
+
+.playIcon {
+  width: 48px;
+  height: 48px;
+  background-color: var(--colorWhite);
+  color: #000000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.playButton:hover .playIcon {
+  transform: scale(1.1);
+}

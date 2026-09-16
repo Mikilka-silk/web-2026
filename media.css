@@ -1,0 +1,87 @@
+@media (max-width: 768px) {
+  .brandLogo,
+  .menuButton {
+    position: relative;
+    z-index: 25;
+  }
+
+  .menuButton {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+  }
+
+  .menuButton span {
+    width: 30px;
+    height: 3px;
+    background-color: var(--colorWhite);
+    transition: all 0.3s ease;
+  }
+
+  .menuCheckbox:checked ~ .menuButton span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  .menuCheckbox:checked ~ .menuButton span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menuCheckbox:checked ~ .menuButton span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+
+  .navBar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    flex-direction: column;
+    background: var(--colorDarkGreen);
+    margin-top: 0;
+    transition:
+      max-height 0.4s ease,
+      padding 0.4s ease;
+    z-index: 15;
+  }
+
+  .navList {
+    flex-direction: column;
+    padding: 0;
+    gap: 25px;
+    align-items: center;
+  }
+
+  .menuCheckbox:checked ~ .navBar {
+    max-height: 500px;
+    padding-top: 100px;
+    padding-bottom: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .heroTitle {
+    font-size: 32px;
+  }
+
+  .aboutSection {
+    flex-direction: column;
+    padding: 60px 15px;
+  }
+
+  .uspTextGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .featuresSection {
+    flex-direction: column;
+    padding: 60px 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .featuresGrid {
+    grid-template-columns: 1fr;
+  }
+}

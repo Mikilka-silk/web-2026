@@ -1,0 +1,29 @@
+.aboutSection {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  padding: 100px 15px;
+}
+
+.aboutContent {
+  flex: 1;
+}
+.aboutImage {
+  flex: 1;
+}
+
+.uspSection {
+  background-color: var(--colorDarkGreen);
+  color: var(--colorWhite);
+  padding: 80px 0;
+}
+
+.uspSection h2 {
+  color: var(--colorWhite);
+}
+
+.uspTextGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
