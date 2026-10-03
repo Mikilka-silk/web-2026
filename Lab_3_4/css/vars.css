@@ -1,0 +1,25 @@
+:root {
+  /* Шрифти */
+  --font-primary: "Montserrat", sans-serif;
+  --font-heading: "Playfair Display", serif;
+
+  /* Кольори фону */
+  --bg-body: #e9e0cf; /* Alabaster - пастельний */
+  --bg-light: #e0d5c1; /* Трохи темніший для хедера/сайдбару */
+  --bg-card: #ffffff; /* Білий для карток, щоб вони виділялися */
+
+  /* Кольори тексту та рамок */
+  --text-main: #132b23; /* Темний зелений (Dark Green) */
+  --text-muted: #5e775e; /* Зелений */
+  --text-light: #7a8c7a;
+  --border-color: #5e775e;
+  --border-light: #a3b8a3;
+
+  /* Акцентні кольори (кнопки, тогли) */
+  --primary-color: #132b23;
+  --primary-hover: #5e775e;
+  --danger-color: #d9534f;
+  --danger-hover: #c9302c;
+  --info-color: #5e775e;
+  --info-hover: #132b23;
+}
