@@ -1,0 +1,67 @@
+.win-footer {
+  border-top: 2px solid var(--secondary-color);
+  padding: 30px 20px;
+}
+
+.footer-top {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.branding {
+  flex: 1;
+  max-width: 350px;
+}
+
+.branding p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.footer-logo {
+  height: 55px;
+  object-fit: contain;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.socials {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.soc-icon {
+  width: 38px;
+  height: 38px;
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.soc-icon:hover {
+  opacity: 0.8;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid var(--secondary-color);
+  margin-top: 30px;
+  padding-top: 20px;
+  font-size: 0.85rem;
+  color: #888;
+}

@@ -1,0 +1,143 @@
+/* =========================================
+   Адаптивність (Responsive Design) - Єдиний файл
+   ========================================= */
+
+/* ГЛОБАЛЬНИЙ ФІКС: щоб жодна картинка не вилазила за екран */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* --- ПЛАНШЕТИ (від 768px до 1024px) --- */
+@media (max-width: 1024px) {
+  .tiles-grid,
+  .catalog-grid {
+    /* На планшетах буде 2 колонки */
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .item-content-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .item-image-container {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+/* --- МОБІЛЬНІ ТЕЛЕФОНИ (до 768px) --- */
+@media (max-width: 768px) {
+  /* HEADER */
+  .win-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+  }
+
+  .header-logo {
+    max-height: 50px;
+    width: auto;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .empty-space {
+    display: none !important;
+  }
+
+  /* HERO SECTION */
+  .win-hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+    margin: 30px 0;
+  }
+
+  .hero-image {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .hero-content {
+    padding-top: 0;
+  }
+
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+
+  /* СІТКА КАРТИН - 1 колонка лише на смартфонах */
+  .tiles-grid,
+  .catalog-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* КАТАЛОГ (Пошук та фільтри) */
+  .catalog-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filters-container {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .search-input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* СТОРІНКА ТОВАРУ */
+  .item-options {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .item-buttons {
+    flex-direction: column-reverse; /* Кнопка "Назад" буде знизу */
+    width: 100%;
+  }
+
+  /* FOOTER */
+  .footer-top {
+    flex-direction: column;
+    gap: 25px;
+    text-align: center;
+  }
+
+  .branding {
+    max-width: 100%;
+  }
+
+  .footer-logo {
+    position: static;
+    transform: none;
+    max-height: 45px;
+  }
+
+  .socials {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+/* --- ДУЖЕ МАЛЕНЬКІ ЕКРАНИ (до 480px) --- */
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .win-app-container {
+    padding: 0 15px;
+  }
+}

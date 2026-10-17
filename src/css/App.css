@@ -1,0 +1,47 @@
+@font-face {
+  font-family: "Mariupol";
+  src: url("../fonts/Mariupol-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Mariupol";
+  src: url("../fonts/Mariupol-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Mariupol";
+  src: url("../fonts/Mariupol-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+:root {
+  --primary-color: #2b2b2b;
+  --secondary-color: #e8e3dc;
+  --bg-color: #fbf9f6;
+  --text-color: #1a1a1a;
+
+  --accent-terracotta: #b84b37;
+  --accent-blue: #2c4c63;
+  --accent-gold: #d49a36;
+
+  --highlight-bg: #f0ebe1;
+  --font-main: "Mariupol", "Segoe UI", Tahoma, sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+  font-family: var(--font-main);
+  color: var(--text-color);
+}
+
+.win-app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
