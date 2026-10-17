@@ -1,0 +1,388 @@
+/* Typography */
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+}
+
+/* Navigation Links */
+.header__link {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  text-decoration: none;
+  color: var(--text-muted);
+  border-right: 1px solid var(--border-color);
+  border-left: 1px solid var(--border-color);
+  margin-left: -1px;
+}
+.header__link--active {
+  background-color: #e9ecef;
+  font-weight: bold;
+}
+
+/* --- Buttons --- */
+.btn {
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  border: none;
+  transition: all 0.3s ease;
+  font-family: var(--font-primary);
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+.btn--outline-blue {
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  background: transparent;
+}
+.btn--outline-blue:hover {
+  background-color: var(--primary-color);
+  color: var(--bg-card);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(19, 43, 35, 0.15);
+}
+
+.btn--outline-red {
+  border: 1px solid var(--danger-color);
+  color: var(--danger-color);
+  background: transparent;
+}
+.btn--outline-red:hover {
+  background-color: var(--danger-color);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.btn--blue {
+  background-color: var(--primary-color);
+  color: var(--bg-card);
+  padding: 10px 24px;
+}
+.btn--blue:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(19, 43, 35, 0.2);
+}
+
+.btn--light-blue {
+  background-color: var(--info-color);
+  color: white;
+}
+.btn--light-blue:hover {
+  background-color: var(--info-hover);
+  transform: translateY(-2px);
+}
+
+.btn--light-red {
+  background-color: var(--danger-color);
+  color: white;
+}
+.btn--light-red:hover {
+  background-color: var(--danger-hover);
+  transform: translateY(-2px);
+}
+
+.btn--full-width {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1rem;
+  margin-top: 10px;
+}
+.btn--large {
+  font-size: 1.2rem;
+  padding: 12px 32px;
+  border-radius: 8px;
+}
+
+/* Inputs */
+.search-input {
+  padding: 6px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  width: 250px;
+  font-family: var(--font-primary);
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+}
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--border-color);
+  transition: 0.4s;
+  border-radius: 24px;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: var(--primary-color);
+}
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* --- Card --- */
+.card {
+  border: 1px solid var(--border-light);
+  background-color: var(--bg-card);
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(19, 43, 35, 0.1);
+}
+.card__img {
+  height: 220px; /* Трохи збільшимо висоту для фото */
+  background-color: var(--bg-body);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Флакон не буде обрізатися */
+  padding: 15px; /* Задаємо простір навколо флакона */
+  transition: transform 0.4s ease;
+}
+
+/* Легкий зум фотографії при наведенні на картку */
+.card:hover .card__img img {
+  transform: scale(1.08);
+}
+
+.card__body {
+  padding: 15px;
+  flex-grow: 1;
+}
+.card__title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: var(--text-main);
+}
+.card__desc {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+.card__footer {
+  padding: 10px 15px 15px;
+  display: flex;
+  gap: 10px;
+}
+
+/* Form */
+.form-section {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 8px;
+  border: 1px solid var(--border-light);
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+.form-title {
+  text-align: center;
+  margin-bottom: 25px;
+  color: var(--text-main);
+}
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.form-group label {
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--text-muted);
+  font-family: var(--font-primary);
+}
+.form-group input,
+.form-group select {
+  padding: 12px;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: var(--font-primary);
+  background-color: var(--bg-body); /* Робимо фон інпутів у колір алебастру */
+  color: var(--text-main);
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(94, 119, 94, 0.2); /* Легке зелене світіння при фокусі */
+}
+
+/* Фарбуємо самі опції (наскільки дозволяє браузер) */
+.form-group select option {
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  padding: 10px;
+}
+
+.form-group input[readonly] {
+  background-color: #d8cebc; /* Трохи темніший колір для неактивного поля */
+  cursor: not-allowed;
+  border-color: transparent;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+.modal-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  min-width: 300px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+.modal-content h2 {
+  margin-bottom: 15px;
+  color: var(--text-main);
+}
+.modal-content p {
+  margin-bottom: 20px;
+  color: var(--text-muted);
+}
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.modal-input {
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+/* --- Empty State (Анімований рухливий пунктир) --- */
+.empty-state {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  text-align: center;
+  background-color: transparent; /* Прибираємо різкий білий фон */
+  border-radius: 12px;
+
+  /* Малюємо пунктир через градієнти */
+  background-image:
+    linear-gradient(90deg, var(--text-muted) 50%, transparent 50%),
+    linear-gradient(90deg, var(--text-muted) 50%, transparent 50%),
+    linear-gradient(0deg, var(--text-muted) 50%, transparent 50%),
+    linear-gradient(0deg, var(--text-muted) 50%, transparent 50%);
+  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+  background-size:
+    16px 2px,
+    16px 2px,
+    2px 16px,
+    2px 16px;
+  background-position:
+    left top,
+    right bottom,
+    left bottom,
+    right top;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.empty-state:hover {
+  background-color: rgba(
+    94,
+    119,
+    94,
+    0.05
+  ); /* Дуже легкий зелений відтінок при наведенні */
+
+  /* Робимо пунктир темнішим при наведенні */
+  background-image:
+    linear-gradient(90deg, var(--primary-color) 50%, transparent 50%),
+    linear-gradient(90deg, var(--primary-color) 50%, transparent 50%),
+    linear-gradient(0deg, var(--primary-color) 50%, transparent 50%),
+    linear-gradient(0deg, var(--primary-color) 50%, transparent 50%);
+  /* Запускаємо рух по колу */
+  animation: border-dance 1s infinite linear;
+}
+
+.empty-state h2 {
+  margin-bottom: 15px;
+  color: var(--text-main);
+  font-size: 2.2rem;
+}
+
+.empty-state p {
+  color: var(--text-light);
+  margin-bottom: 35px; /* Збільшили відступ між текстом і кнопкою */
+  font-size: 1.15rem;
+}
+
+@keyframes border-dance {
+  100% {
+    background-position:
+      left 16px top,
+      right 16px bottom,
+      left bottom 16px,
+      right top 16px;
+  }
+}
