@@ -1,8 +1,10 @@
 import React from "react";
 import PositionAwareButton from "./PositionAwareButton";
+import { useNavigate } from "react-router-dom";
 import "../css/Hero.css";
 
 const Hero = () => {
+  const navigate = useNavigate();
   return (
     <section className="win-hero">
       <img
@@ -20,7 +22,10 @@ const Hero = () => {
         </p>
 
         <div className="hero-button-wrapper">
-          <PositionAwareButton text="Перейти до каталогу" />
+          <PositionAwareButton
+            text="Перейти до каталогу"
+            onClick={() => navigate("/catalog")}
+          />
         </div>
       </div>
     </section>

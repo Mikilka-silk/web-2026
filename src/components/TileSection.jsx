@@ -1,20 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Tile from "./Tile";
 import PositionAwareButton from "./PositionAwareButton";
-import { artworks } from "../data/artworks";
+import { getArtworks } from "../api/itemsAPI";
+import Loader from "./Loader";
 import "../css/Tile.css";
 
 const TileSection = () => {
+  const [artworks, setArtworks] = useState([]);
   const [visibleCount, setVisibleCount] = useState(3);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchArtworks = async () => {
+      setIsLoading(true);
+      try {
+        const data = await getArtworks();
+        setArtworks(data);
+      } catch (error) {
+        console.error("Помилка завантаження картин:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchArtworks();
+  }, []);
 
   const handleLoadMore = () => {
     setVisibleCount((prevCount) => prevCount + 3);
   };
 
+  if (isLoading) return <Loader />;
+
   return (
     <section className="win-tile-section">
       <div className="tiles-grid">
-        {/* Беремо частину масиву від 0 до visibleCount і виводимо через map */}
         {artworks.slice(0, visibleCount).map((art) => (
           <Tile
             key={art.id}

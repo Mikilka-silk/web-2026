@@ -45,3 +45,13 @@ body {
   margin: 0 auto;
   padding: 0 20px;
 }
+
+::selection {
+  background-color: var(--accent-terracotta, #d36a49);
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background-color: var(--accent-terracotta, #d36a49);
+  color: #ffffff;
+}

@@ -1,12 +1,11 @@
 import React from "react";
-import { useNavigate } from "react-router-dom"; // Імпортуємо хук для навігації
-import PositionAwareButton from "./PositionAwareButton"; // Імпортуємо твою круту кнопку
+import { useNavigate } from "react-router-dom";
+import PositionAwareButton from "./PositionAwareButton";
 import "../css/Tile.css";
 
 const Tile = ({ id, title, desc, imageSrc, price, focus }) => {
-  const navigate = useNavigate(); // Ініціалізуємо функцію навігації
+  const navigate = useNavigate();
 
-  // Функція, яка спрацює при кліку на кнопку
   const handleViewMore = () => {
     navigate(`/item/${id}`);
   };
@@ -26,12 +25,9 @@ const Tile = ({ id, title, desc, imageSrc, price, focus }) => {
         )}
       </div>
       <h3>{title}</h3>
-      <p>{desc}</p>
 
-      {/* Виводимо ціну, якщо вона передана */}
       {price && <p className="tile-price">Ціна: ${price}</p>}
 
-      {/* Використовуємо твою анімовану кнопку замість звичайного посилання */}
       {id && (
         <div className="tile-actions">
           <PositionAwareButton text="Переглянути" onClick={handleViewMore} />

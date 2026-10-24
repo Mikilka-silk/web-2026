@@ -1,86 +1,91 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { artworks } from "../data/artworks";
 import PositionAwareButton from "../components/PositionAwareButton";
-import "../css/ItemPage.css"; // Створимо цей файл наступним
+import Loader from "../components/Loader";
+import Modal from "../components/Modal";
+import "../css/ItemPage.css";
+import { getArtworkById } from "../api/itemsAPI";
 
 const ItemPage = () => {
-  const { id } = useParams(); // Отримуємо ID з URL
-  const navigate = useNavigate(); // Для кнопки "Назад"
+  const { id } = useParams();
+  const navigate = useNavigate();
 
-  // Шукаємо картину в масиві за ID
-  const item = artworks.find((art) => art.id === parseInt(id));
+  const [artwork, setArtwork] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // Стани для інтерактивних елементів (як вимагає 8 лаба)
   const [quantity, setQuantity] = useState(1);
   const [frameType, setFrameType] = useState("Без рами");
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+
+    const fetchArtwork = async () => {
+      setIsLoading(true);
+      try {
+        const data = await getArtworkById(id);
+        setArtwork(data);
+      } catch (error) {
+        console.error("Помилка завантаження картини", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchArtwork();
+  }, [id]);
+
   const getFramePrice = (type) => {
-    if (type === "Дерев'яна рама") return 30; //
-    if (type === "Металева рама") return 50; //
-    return 0; // Без рами
+    if (type === "Дерев'яна рама") return 30;
+    if (type === "Металева рама") return 50;
+    return 0;
   };
 
-  const framePrice = getFramePrice(frameType);
-  const totalPrice = (item.price + framePrice) * quantity;
+  if (isLoading) return <Loader />;
 
-  // Захист від від'ємних чисел та нуля
-  const handleQuantityChange = (e) => {
-    const value = parseInt(e.target.value);
-    if (value > 0) {
-      setQuantity(value);
-    } else if (e.target.value === "") {
-      setQuantity(""); // Дозволяємо стерти число, щоб ввести нове
+  if (!artwork) return <div className="error-message">Картину не знайдено</div>;
+
+  const handleQuantityChange = (event) => {
+    const val = parseInt(event.target.value, 10);
+    if (val >= 1 && val <= 10) {
+      setQuantity(val);
     }
   };
 
-  if (!item) {
-    return (
-      <div className="item-not-found">
-        <h2>Картину не знайдено</h2>
-        <button onClick={() => navigate("/catalog")}>
-          Повернутися до каталогу
-        </button>
-      </div>
-    );
-  }
-
   const handleGoBack = () => {
-    navigate(-1); // Повертає на попередню сторінку
+    navigate("/catalog");
   };
 
   const handleAddToCart = () => {
-    // В 10-й лабі тут буде Redux, поки що просто alert
-    alert(
-      `Додано в кошик:\n${item.title}\nКількість: ${quantity}\nОформлення: ${frameType}`,
-    );
+    setIsModalOpen(true);
   };
+
+  const framePrice = getFramePrice(frameType);
+  const totalPrice = (artwork.price + framePrice) * quantity;
 
   return (
     <div className="item-page">
       <div className="item-content-wrapper">
-        {/* Ліва частина: Зображення */}
         <div className="item-image-container">
           <img
-            src={item.imageSrc}
-            alt={item.title}
+            src={artwork.imageSrc}
+            alt={artwork.title}
             className="item-full-image"
-            style={{ objectPosition: item.focus || "center" }}
+            style={{ objectPosition: artwork.focus || "center" }}
           />
         </div>
 
-        {/* Права частина: Інформація */}
         <div className="item-details">
           <div className="item-badges">
-            <span className="badge">{item.style}</span>
-            <span className="badge">{item.artist}</span>
+            <span className="badge">{artwork.style}</span>
+            <span className="badge">{artwork.artist}</span>
           </div>
 
-          <h1 className="item-title">{item.title}</h1>
-          <p className="item-description">{item.desc}</p>
+          <h1 className="item-title">{artwork.title}</h1>
+          <p className="item-description">{artwork.desc}</p>
 
           <div className="item-options">
-            {/* Правильний блок кількості з нашим захистом */}
             <div className="option-group">
               <label>Кількість (репродукцій):</label>
               <input
@@ -93,7 +98,6 @@ const ItemPage = () => {
               />
             </div>
 
-            {/* Блок вибору рами, який випадково зник */}
             <div className="option-group">
               <label>Оформлення:</label>
               <select
@@ -120,6 +124,13 @@ const ItemPage = () => {
           </div>
         </div>
       </div>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <p>
+          Картину <strong>{artwork.title}</strong> ({frameType.toLowerCase()})
+          додано в кошик!
+        </p>
+        <p>Кількість: {quantity}</p>
+      </Modal>
     </div>
   );
 };

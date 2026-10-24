@@ -32,3 +32,35 @@
   background-color: var(--highlight-bg);
   color: var(--accent-terracotta);
 }
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--primary-color, #1a1a1a);
+  font-family: var(--font-main, sans-serif);
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 5px 0;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent-terracotta, #d36a49);
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--accent-terracotta, #d36a49);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}

@@ -1,18 +1,12 @@
-/* =========================================
-   Адаптивність (Responsive Design) - Єдиний файл
-   ========================================= */
-
-/* ГЛОБАЛЬНИЙ ФІКС: щоб жодна картинка не вилазила за екран */
 img {
   max-width: 100%;
   height: auto;
 }
 
-/* --- ПЛАНШЕТИ (від 768px до 1024px) --- */
+/* ПЛАНШЕТИ */
 @media (max-width: 1024px) {
   .tiles-grid,
   .catalog-grid {
-    /* На планшетах буде 2 колонки */
     grid-template-columns: repeat(2, 1fr) !important;
   }
 
@@ -27,7 +21,7 @@ img {
   }
 }
 
-/* --- МОБІЛЬНІ ТЕЛЕФОНИ (до 768px) --- */
+/* ТЕЛЕФОНИ */
 @media (max-width: 768px) {
   /* HEADER */
   .win-header {
@@ -75,13 +69,13 @@ img {
     font-size: 2.2rem;
   }
 
-  /* СІТКА КАРТИН - 1 колонка лише на смартфонах */
+  /* СІТКА КАРТИН */
   .tiles-grid,
   .catalog-grid {
     grid-template-columns: 1fr !important;
   }
 
-  /* КАТАЛОГ (Пошук та фільтри) */
+  /* КАТАЛОГ */
   .catalog-header {
     flex-direction: column;
     align-items: flex-start;
@@ -104,7 +98,7 @@ img {
   }
 
   .item-buttons {
-    flex-direction: column-reverse; /* Кнопка "Назад" буде знизу */
+    flex-direction: column-reverse;
     width: 100%;
   }
 
@@ -131,7 +125,25 @@ img {
   }
 }
 
-/* --- ДУЖЕ МАЛЕНЬКІ ЕКРАНИ (до 480px) --- */
+/* МОДАЛКА */
+@media (max-width: 480px) {
+  .modal-content {
+    padding: 25px 20px;
+    min-width: 90%;
+  }
+
+  .modal-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .modal-buttons .btn_aware {
+    width: 100%;
+    padding: 12px 20px;
+  }
+}
+
+/* ДУЖЕ МАЛЕНЬКІ ЕКРАНИ */
 @media (max-width: 480px) {
   .hero-content h1 {
     font-size: 1.8rem;
