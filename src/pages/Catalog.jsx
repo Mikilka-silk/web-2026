@@ -10,7 +10,6 @@ const Catalog = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filterStyle, setFilterStyle] = useState("");
 
-  // USEEFFECT ДЛЯ ЗАГРУЗКИ СТИЛІВ КОМПОНЕНТІВ!!!
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
@@ -27,7 +26,6 @@ const Catalog = () => {
     fetchData();
   }, [filterStyle]);
 
-  // ЛОКАЛЬНИЙ ПОШУК
   const filteredArtworks = items.filter((art) => {
     const matchesSearch =
       art.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -60,7 +58,6 @@ const Catalog = () => {
         </div>
       </div>
 
-      {/* УМОВНИЙ РЕНДЕРИНГ */}
       {isLoading ? (
         <Loader />
       ) : (
